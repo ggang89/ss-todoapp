@@ -49,7 +49,7 @@ function App() {
       <ul>
         {todoList.map((t) => (
           <li key={t.id}>
-            <Todolist id={t.id}
+            <Todolist 
               isEditing={t.isEditing}
               handleTodo={(e) => { handleTodo(e, t.id) }}
               todotitle={t.todoTitle}

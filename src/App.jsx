@@ -11,8 +11,13 @@ function App() {
     const newTodo = { id: uuidv4(), todoTitle: input, isEditing: false };
     setTodoList([newTodo, ...todoList]);
     setInput("");
-    
   };
+  const enterkey = (event) => {
+    if (event.keyCode === 13) {
+      
+      addBtn();
+    }
+  }
   const handleInput = (e) => {
     setInput(e.target.value);
   };
@@ -44,17 +49,27 @@ function App() {
   }
   return (
     <>
-      <Todoinput input={input} handleInput={handleInput} addBtn={addBtn} />
+      <Todoinput
+        input={input}
+        handleInput={handleInput}
+        addBtn={addBtn}
+        enterKey={enterkey}
+      />
 
       <ul>
         {todoList.map((t) => (
           <li key={t.id}>
-            <Todolist 
+            <Todolist
               isEditing={t.isEditing}
-              handleTodo={(e) => { handleTodo(e, t.id) }}
+              handleTodo={(e) => {
+                handleTodo(e, t.id);
+              }}
               todotitle={t.todoTitle}
-              editBtn={() => { editBtn(t.id) }}
-              delBtn={()=>delBtn(t.id) } />
+              editBtn={() => {
+                editBtn(t.id);
+              }}
+              delBtn={() => delBtn(t.id)}
+            />
           </li>
         ))}
       </ul>

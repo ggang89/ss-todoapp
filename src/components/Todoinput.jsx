@@ -1,5 +1,4 @@
-export default function Todoinput({ handleInput, addBtn, input }) {
-  
+export default function Todoinput({ handleInput, addBtn, input, enterKey }) {
   return (
     <>
       <div className="bg-gray-200 w-[600px] p-3 mb-3 flex justify-center">
@@ -12,6 +11,7 @@ export default function Todoinput({ handleInput, addBtn, input }) {
           id="input"
           value={input}
           placeholder="개발 공부"
+          onKeyDown={enterKey}
         />
         <button
           className="px-4 py-1 rounded-xl bg-[skyblue] text-white font-bold hover:bg-sky-700"
